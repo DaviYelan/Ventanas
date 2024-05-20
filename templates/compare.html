@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Comparación de Ventanillas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Comparación de Ventanillas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Ventanilla</th>
+                <th>Total de Personas</th>
+                <th>Tiempo Total (segundos)</th>
+                <th>Nota Final</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ventanilla, records in records.items() %}
+            {% for record in records %}
+            <tr>
+                <td>{{ ventanilla }}</td>
+                <td>{{ record.total_persons }}</td>
+                <td>{{ record.total_time }}</td>
+                <td>{{ record.final_nota }}</td>
+                <td>{{ record.date }}</td>
+            </tr>
+            {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
